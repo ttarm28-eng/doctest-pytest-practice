@@ -1,7 +1,8 @@
 '''
 All the functions in this file convert markdown syntax into html.
-Implementing these functions will give you practice learning the correct markdown syntax.
+Practice learning the correct markdown syntax.
 '''
+
 
 def compile_italic_underscore(line):
     '''
@@ -19,7 +20,7 @@ def compile_italic_underscore(line):
     '_'
     >>> compile_italic_underscore('_a_ and _b_')
     '<i>a</i> and <i>b</i>'
-    >>> compile_italic_underscore('_a_ and _b')          # odd count: last one is literal
+    >>> compile_italic_underscore('_a_ and _b')  # odd count: last one is literal
     '<i>a</i> and _b'
     >>> compile_italic_underscore('no underscores here')
     'no underscores here'
@@ -57,10 +58,11 @@ def compile_links(line):
     '''
     Add <a> tags.
 
+    Note1 = (
     HINT:
-    The links and images are potentially more complicated because they have many types of delimeters: `[]()`.
-    These delimiters are not symmetric, however, so we can more easily find the start and stop locations using the strings find function.
-
+    Links and images have more delimeters: `[]()`.
+    Delimiters are not symmetric, but can use the strings find function.
+    )
     >>> compile_links('Click on the [course webpage](https://github.com/mikeizbicki/cmc-csci040)!')
     'Click on the <a href="https://github.com/mikeizbicki/cmc-csci040">course webpage</a>!'
     >>> compile_links('[course webpage](https://github.com/mikeizbicki/cmc-csci040)')
