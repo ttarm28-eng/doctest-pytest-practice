@@ -27,8 +27,18 @@ def compile_italic_underscore(line):
     >>> compile_italic_underscore('')
     ''
     '''
-    return line
-
+    xs = ""
+    inside_italic = True
+    for character in line:
+        if character != '_':
+            inside_italic =not inside_italic
+            xs += character
+        else:
+            if inside_italic:
+                xs += '<i>'
+            else:
+                xs += '</i>'
+    return xs
 
 def compile_bold_stars(line):
     '''
