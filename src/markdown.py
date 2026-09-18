@@ -124,7 +124,7 @@ def compile_links(line):
     while i < len(line):
         if line[i] == '[':
             cbrack = line.find(']', i)
-            if cbrack != -1 and cbrack + 1 <len(line) and line[cbrack + 1] == '(':
+            if cbrack != -1 and cbrack + 1 < len(line) and line[cbrack + 1] == '(':
                 cparen = line.find(')', cbrack + 2)
                 if cparen != -1:
                     text = line[i + 1:cbrack]
@@ -141,4 +141,3 @@ def compile_links(line):
             accumulator += line[i]
             i += 1
     return accumulator
-
