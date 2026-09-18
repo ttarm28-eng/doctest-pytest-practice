@@ -47,6 +47,7 @@ def compile_italic_underscore(line):
             accumulator += char
     return accumulator
 
+
 def compile_bold_stars(line):
     '''
     Convert "**bold**" to "<b>bold</b>".
@@ -73,7 +74,7 @@ def compile_bold_stars(line):
     accumulator = ''
     just_editted = False
     for i, x in enumerate(line):
-        if i<= len(line) -2:
+        if i <= len(line) - 2:
             if x == '*' and line[i+1] == '*':
                 if not just_editted:
                     if line[i+1:].find('**') != -1:
@@ -92,6 +93,7 @@ def compile_bold_stars(line):
             if x != '*':
                 accumulator += x
     return accumulator
+
 
 def compile_links(line):
     '''
@@ -121,18 +123,18 @@ def compile_links(line):
     i = 0
     while i < len(line):
         if line[i] == '[':
-           cbrack = line.find(']', i)
-           if cbrack != -1 and cbrack + 1 <len(line) and line[cbrack + 1] == '(':
-               cparen = line.find(')', cbrack + 2)
-               if cparen != -1:
-                   text = line[i + 1:cbrack]
-                   url = line[cbrack + 2:cparen]
-                   accumulator += '<a href="' + url + '">' + text + '</a>'
-                   i = cparen + 1
-               else:
+            cbrack = line.find(']', i)
+            if cbrack != -1 and cbrack + 1 <len(line) and line[cbrack + 1] == '(':
+                cparen = line.find(')', cbrack + 2)
+                if cparen != -1:
+                    text = line[i + 1:cbrack]
+                    url = line[cbrack + 2:cparen]
+                    accumulator += '<a href="' + url + '">' + text + '</a>'
+                    i = cparen + 1
+                else:
                     accumulator += line[i]
                     i += 1
-           else:
+            else:
                 accumulator += line[i]
                 i += 1
         else:
